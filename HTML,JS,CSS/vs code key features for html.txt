@@ -1,0 +1,30 @@
+1) !+ Enter= basic html structure.
+
+2) cursor on some line- +alt+up/down key = shifts that line up or down.
+
+3)index.html is a special name of a file to be executed first by a server among the collection of html files.when the website's root address is types.
+
+4) loremXX generate random XX(number) words.
+
+5) ctrl+/ = commenting a line in html
+
+6) ctrl+select locations for multiple cursors.
+
+7) <b> bold
+   <i> italic 
+   <u> underline
+
+8)html ignores newlines and extra spaces.
+
+9)<br>(dont require to close this tag)  to represent your info in new line.
+   ex...<p> <br>(break line)    your content </p>
+
+10) <big> for big letters </big>.
+    <small> for small letters </small>.
+
+11) <hr>  (horizontal line divider)
+           content
+           content
+                            <hr>(no slash to break).
+
+12) <pre>   render copied lines with as it is new lines </pre>.

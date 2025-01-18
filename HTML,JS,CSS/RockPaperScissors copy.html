@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <p>Rock Paper Scissors</p>
+  <button
+   onclick="
+
+ computerMove = pickMove();
+ playGame('Rock');
+  
+//global variables cant be same...but we can separate identical variable by scope{}..
+// var variable create conflict even when inside the scope.Dont follow rules of scope..
+  ">Rock</button>
+
+
+  <button
+  onclick="
+  
+  computerMove = pickMove();
+  playGame('Paper');
+
+  
+">Paper</button>
+
+<button
+onclick="
+
+  computerMove = pickMove();
+  playGame('Scissors');
+  
+
+
+
+">Scissors</button>
+
+<button
+onclick="
+ score.wins =0;
+ score.losses = 0;
+ score.ties =0;
+ 
+ localStorage.removeItem(score);
+
+ //if there was a nuss score value fortunately we dont get it i dont know why, then..
+
+/*if(!score){
+  score = {
+    wins: 0,
+    losses: 0,
+    ties: 0
+  }
+}
+*/
+
+">
+  Reset Score
+</button>
+
+<script>
+  const score =  JSON.parse(localStorage.getItem('score'));
+
+  
+
+ 
+
+
+let result= '';
+
+
+
+function pickMove(){
+
+let computerMove = '';
+
+
+const randomNumber = Math.random(); 
+
+
+if(randomNumber >=0 && randomNumber < 1/3)
+{
+  computerMove ='Rock';
+}else if(randomNumber >=1/3 && randomNumber<2/3)
+{
+  computerMove ='Paper';
+}else if(randomNumber>=2/3 && randomNumber<1)
+{
+  computerMove = 'Scissors';
+}
+
+return computerMove ;
+}
+
+
+
+
+
+function playGame(playerMove)
+{
+
+  if (playerMove==='Scissors')
+  {
+
+    if(computerMove ==='Rock')
+    {
+    result ='You Lose.';
+    }
+    else if (computerMove === 'Paper')
+    {
+    result='You Win.';
+    }
+    else if (computerMove = 'Scissors')
+    {
+    result ='Tie.';
+    }
+
+
+  }
+  else if(playerMove === 'Paper')
+  {
+    
+    
+
+    if(computerMove ==='Rock'){
+    result ='You Win.';
+    }
+    else if (computerMove === 'Paper')
+    {
+    result='Tie.';
+    }
+    else if (computerMove = 'Scissors')
+    {
+    result ='You Lose.';
+    }
+
+
+  }
+
+  else if (playerMove==='Rock')
+
+  {
+    if(computerMove ==='Rock')
+    {
+    result ='Tie.';
+    }
+    else if (computerMove === 'Paper')
+    {
+    result='You lose.';
+    }
+    else if (computerMove = 'Scissors')
+    {
+    result ='You Win.';
+    }
+    
+    }
+
+
+
+
+
+  if(result ==='You Win.')
+  {
+      score.wins +=1;
+    }
+    else if(result==='You Lose.')
+    {
+      score.losses +=1;
+    }
+    else if (result==='Tie.')
+    {
+      score.ties +=1;}
+
+      localStorage.setItem('score',JSON.stringify(score));
+  
+
+
+  alert(`you picked ${playerMove}.Computer picked ${computerMove}. ${result}
+   Wins:${score.wins},Losses:${score.losses},Ties:${score.ties}
+  `);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // 1) this immediately ends the function..and returns back to where we called the function...
+  
+  //return statement lets us return value out of a function...
+  
+  
+  
+  
+  // 2) Functions Creates a Scope..
+  // declare global variables outside the function..
+
+
+// 3) we can transforn local variable into global variable by making the function return that variable....
+
+// 4) returning  a variable is preferred over global variables
+//because it prevents naming conflicts.. 
+
+</script>
+</body>
+</html>
