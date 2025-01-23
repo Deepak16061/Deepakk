@@ -36,7 +36,8 @@
   margin-top:60px;
 }
 
-.reset-score-button{
+.reset-score-button
+.Auto-play-burron{
   background-color:white;
   border:none;
   font-size:15px;
@@ -55,7 +56,7 @@
   
 //global variables cant be same...but we can separate identical variable by scope{}..
 // var variable create conflict even when inside the scope.Dont follow rules of scope..
-  "><img src="Images/Rock-emoji.png"  class="move-icon"></button>
+  "><img src="Images/rock-emoji.png"  class="move-icon"></button>
 
 
 
@@ -67,7 +68,7 @@
   playGame('Paper');
 
   
-"><img src="Images/Paper-emoji.png" class="move-icon"></button>
+"><img src="Images/paper-emoji.png" class="move-icon"></button>
 
 <button
 onclick="
@@ -79,7 +80,7 @@ onclick="
 
 
 
-" class="move-button"><img src="Images/Scissors-emoji.png" class="move-icon"></button>
+" class="move-button"><img src="Images/scissors-emoji.png" class="move-icon"></button>
 
 
 <p class="js-result result"></p>
@@ -107,6 +108,14 @@ onclick="
 
 " class="reset-score-button">
   Reset Score
+</button>
+
+<button class="auto-play-button" onclick="
+
+  
+   autoPlay();
+">
+  Auto Play
 </button>
 
  <script >
@@ -159,10 +168,32 @@ return computerMove ;
 }
 
 
+let isAutoPlaying =false;
+let intervalId;
+function autoPlay(){
+
+  if(!isAutoPlaying){
 
 
+   intervalId = setInterval(function() {
+   let playerMove=pickMove();
+   let computerMove = pickMove();
+   playGame(playerMove,computerMove);
+  },1000);
 
-function playGame(playerMove)
+  isAutoPlaying = true;
+
+
+  } else{
+    clearInterval(intervalId);
+    isAutoPlaying = false;
+
+  }
+
+  
+}
+
+function playGame(playerMove,computerMove)
 {
 
 if (playerMove==='Scissors')
