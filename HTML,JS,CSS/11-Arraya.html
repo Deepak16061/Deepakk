@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Arrays&Loops</title>
+</head>
+<body>
+  <script>
+    const myArray = [
+      10,
+      20,
+      30
+    ];
+
+    console.log(myArray[0]);
+    myArray[0]=99//replaces the array element.
+    console.log(myArray);
+
+    [1,'hello',true,{name:'socks'},[1,2]]
+    console.log(typeof [1,2]);//array is a special type of object..hence we can allly object methods to an array...
+
+
+    console.log(Array.isArray([1,2]));//ststic method of an array...to determine if the passed value is an array...
+
+    console.log(myArray.length);
+
+    myArray.push(100);//adds this value as an next value in array.
+    console.log(myArray);
+
+    myArray.splice(0,1);//delete array elements from 0 to less than n-1(0,n)...
+    console.log(myArray)
+    </script>
+
+
+  
+</body>
+</html>
